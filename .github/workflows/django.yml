@@ -97,5 +97,5 @@ jobs:
                   
       - name: 'Build Inventory Image'
         run: |
-          docker build . -f backend/Dockerfile --build-arg REQUIREMENTS_FILE=requirements.txt --tag ghcr.io/deltacodepl/opak-landingpage:latest
-          docker push ghcr.io/deltacodepl/opak-landingpage:latest
+          docker build . -f backend/Dockerfile --build-arg REQUIREMENTS_FILE=requirements.txt --tag ghcr.io/deltacodepl/opak-page:latest
+          docker push ghcr.io/deltacodepl/opak-page:latest
