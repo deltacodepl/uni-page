@@ -3,14 +3,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Product(models.TextChoices):
-        LIDBOX = "L"
-        BOOKBOX = "B"
-        SAMPLEBOX = "S"
+    LIDBOX = "L"
+    BOOKBOX = "B"
+    SAMPLEBOX = "S"
 
 
 class Inquiry(models.Model):
-    first_name = models.CharField(_('first name'), max_length=100)
-    last_name = models.CharField(_('last name'), max_length=100)
+    first_name = models.CharField(_("first name"), max_length=100)
+    last_name = models.CharField(_("last name"), max_length=100)
     email = models.CharField(max_length=150)
     phone = models.CharField(max_length=20, blank=True, null=True)
     box_dimensions = models.CharField(max_length=150, blank=True, null=True)
@@ -20,9 +20,9 @@ class Inquiry(models.Model):
     edited_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
-        verbose_name = 'Inquiry'
-        verbose_name_plural = 'Inquires'
-        ordering = ['-created_at']
+        verbose_name = "Inquiry"
+        verbose_name_plural = "Inquires"
+        ordering = ["-created_at"]
 
     def get_full_name(self) -> str:
         return "{0} {1}".format(self.first_name, self.last_name).strip()
