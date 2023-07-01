@@ -13,7 +13,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 //import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -32,14 +32,14 @@ const formSchema = z
     //   errorMap: () => ({ message: "You must accept the terms and conditions" }),
     // }),
   });
-  
+
 
 
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000/inquires",
   headers: {
-      'Accept':'application/json',
-      'Content-Type':'application/json',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
   }
 })
 
@@ -58,18 +58,18 @@ export default function SignInSide() {
     //event.preventDefault();
     //const formData = new FormData(data);
     console.log(data);
-    let inquiryData =  {
+    let inquiryData = {
       email: data.email,
       first_name: data.firstName,
       last_name: data.lastName,
-      box_dimensions: [data.length,data.width,data.height].join("/"),
-      marketing: data.marketing ==='allowExtraEmails'? '1' : '0',
+      box_dimensions: [data.length, data.width, data.height].join("/"),
+      marketing: data.marketing === 'allowExtraEmails' ? '1' : '0',
     }
     client.post(
       "/add/",
       inquiryData,
     ).then(
-    console.log(inquiryData)
+      console.log(inquiryData)
     );
   };
 
@@ -77,34 +77,34 @@ export default function SignInSide() {
     return value == null || value.trim() === "" || value === NaN;
   };
   const theme = useTheme();
-  
+
   return (
     <Box
-    maxWidth={{ sm: 720, md: 1236 }}
-    width={1}
-    margin='0 auto'
-    paddingX={2}
-    paddingY={4}
-  >
-    <Box marginBottom={4}>
-      <Typography
-        variant='h4'
-        align='center'
-        data-aos='fade-up'
-        fontWeight={700}
-        gutterBottom
-      >
-        About us
-      </Typography>
-      <Typography
-        variant='h6'
-        align='center'
-        color={theme.palette.text.secondary}
-        data-aos='fade-up'
-      >
-        Twórcą serwisu Opakowaniareklamowe.pl jest Spółka Segregatory24, powstała na bazie 19 lat doświadczeń w produkcji wyrobów reklamowych z tektury.  Misją Segregatory24 jest tworzenie produktów promocyjnych wychodzących naprzeciw potrzebom klientów. Sta
-      </Typography>
-    </Box> 
+      maxWidth={{ sm: 720, md: 1236 }}
+      width={1}
+      margin='0 auto'
+      paddingX={2}
+      paddingY={4}
+    >
+      <Box marginBottom={4}>
+        <Typography
+          variant='h4'
+          align='center'
+          data-aos='fade-up'
+          fontWeight={700}
+          gutterBottom
+        >
+          About us
+        </Typography>
+        <Typography
+          variant='h6'
+          align='center'
+          color={theme.palette.text.secondary}
+          data-aos='fade-up'
+        >
+          Twórcą serwisu Opakowaniareklamowe.pl jest Spółka Segregatory24, powstała na bazie 19 lat doświadczeń w produkcji wyrobów reklamowych z tektury.  Misją Segregatory24 jest tworzenie produktów promocyjnych wychodzących naprzeciw potrzebom klientów. Sta
+        </Typography>
+      </Box>
       <Grid container component="main" sx={{ height: "60vh" }}>
         <CssBaseline />
         {/* <Box 
@@ -143,7 +143,7 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-           
+
             <Typography component="h1" variant="h5">
               Jak możemy Ci pomóc?
             </Typography>
@@ -179,7 +179,7 @@ export default function SignInSide() {
                     name="lastName"
                     autoComplete="family-name"
                     {...register('lastName')}
-                    error={errors.lastName ? true: false}
+                    error={errors.lastName ? true : false}
                   />
                   <Typography variant="inherit" color="textSecondary">
                     {errors.lastName?.message}
@@ -195,13 +195,13 @@ export default function SignInSide() {
                     name="email"
                     autoComplete="email"
                     {...register('email')}
-                    error={errors.email ? true: false}
+                    error={errors.email ? true : false}
                   />
                   <Typography variant="inherit" color="textSecondary">
                     {errors.email?.message}
                   </Typography>
                 </Grid>
-                
+
                 <Grid item xs={12} sm={4}>
                   <TextField
                     fullWidth
@@ -209,11 +209,11 @@ export default function SignInSide() {
                     name="length"
                     label="Length (L)"
                     id="length"
-                    inputProps={{min:60}}
+                    inputProps={{ min: 60 }}
                     {...register('length', {
                       setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
                     })}
-                    error={errors.length ? true: false}
+                    error={errors.length ? true : false}
                   />
                   <Typography variant="inherit" color="textSecondary">
                     {errors.length?.message}
@@ -226,11 +226,11 @@ export default function SignInSide() {
                     name="width"
                     label="Width (W)"
                     id="width"
-                    inputProps={{min:60}}
+                    inputProps={{ min: 60 }}
                     {...register('width', {
                       setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
                     })}
-                    error={errors.width ? true: false
+                    error={errors.width ? true : false
                     }
                   />
                   <Typography variant="inherit" color="textSecondary">
@@ -244,22 +244,56 @@ export default function SignInSide() {
                     name="height"
                     label="Height (H)"
                     id="height"
-                    inputProps={{min:30}}
+                    inputProps={{ min: 30 }}
                     {...register('height', {
-                      setValueAs: (v) => v === "" ? undefined: parseInt(v, 10),
+                      setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
                     })}
-                    error={errors.height ? true: false}
+                    error={errors.height ? true : false}
                   />
                   <Typography variant="inherit" color="textSecondary">
                     {errors.height?.message}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <FormControlLabel
+                  {/* <FormControlLabel
                     control={
-                      <Checkbox value="allowExtraEmails" color="primary" name="marketing" {...register('marketing')}/>
+                      <Checkbox
+                        value="allowExtraEmails"
+                        color="primary"
+                        name="marketing"
+                        {...register('marketing')}
+                      />
                     }
                     label="Chcę otrzymywać wiadomości o promocjach i nowościach na email"
+                  /> */}
+                  {/* <FormControlLabel
+                    control={
+                      <Controller
+                        name="allow"
+                        control={control}
+                        render={({ field: props }) => (
+                          <Checkbox
+                            {...props}
+                            checked={props.value}
+                            onChange={(e) => props.onChange(e.target.checked)}
+                          />
+                        )}
+                      />
+                    }
+                    label="otrzym"
+                  /> */}
+                  <Controller
+                    control={control}
+                    name="marketing"
+                    defaultValue={true}
+                    render={({ field: { value, onChange, ...field } }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox onChange={onChange} checked={value} {...field} />
+                        }
+                        label="checkbox"
+                      />
+                    )}
                   />
                 </Grid>
               </Grid>
@@ -271,7 +305,7 @@ export default function SignInSide() {
               >
                 Wyślij
               </Button>
-             
+
             </Box>
           </Box>
         </Grid>
