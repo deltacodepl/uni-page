@@ -63,7 +63,7 @@ export default function SignInSide() {
       first_name: data.firstName,
       last_name: data.lastName,
       box_dimensions: [data.length, data.width, data.height].join("/"),
-      marketing: data.marketing === 'allowExtraEmails' ? '1' : '0',
+      marketing: data.marketing,
     }
     client.post(
       "/add/",
@@ -264,7 +264,7 @@ export default function SignInSide() {
                         {...register('marketing')}
                       />
                     }
-                    label="Chcę otrzymywać wiadomości o promocjach i nowościach na email"
+                    label=""
                   /> */}
                   {/* <FormControlLabel
                     control={
@@ -291,7 +291,7 @@ export default function SignInSide() {
                         control={
                           <Checkbox onChange={onChange} checked={value} {...field} />
                         }
-                        label="checkbox"
+                        label="Chcę otrzymywać wiadomości o promocjach i nowościach na email"
                       />
                     )}
                   />
