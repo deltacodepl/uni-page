@@ -109,7 +109,7 @@ export default function SignInSide() {
           Jak możemy Ci pomóc?
         </Typography>
       </Box>
-      <Grid container component="main" sx={{ height: "60vh" }}>
+      <Grid container component="main" sx={{ height: {xs: 690, sm: "65vh", md: "65vh"} }}>
         <CssBaseline />
         {/* <Box 
             component={LazyLoadImage}

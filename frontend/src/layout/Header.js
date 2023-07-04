@@ -77,8 +77,8 @@ const Header = ({ onSidebarOpen }) => {
                 variant='rounded'
                 sx={{
                   backgroundColor: theme.palette.primary.main,
-                  height: 52,
-                  width: 52,
+                  height: 45,
+                  width: 129,
                   marginRight: '15px'
                 }}
               >
@@ -103,7 +103,7 @@ const Header = ({ onSidebarOpen }) => {
                   display: { md: 'inline', xs: 'none' }
                 }}
               >
-                Logo
+                
               </Typography>
             </IconButton>
           </Link>

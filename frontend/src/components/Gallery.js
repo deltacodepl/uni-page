@@ -22,39 +22,6 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-const gallery = [
-  {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    rows: 1,
-    cols: 2,
-  },
-
-  // {
-  //   img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-  //   title: 'Honey',
-  //   author: '@arwinneil',
-  //   rows: 2,
-  //   cols: 2,
-  // },
- 
-  
-];
-
 
 const Gallery = () => {
   const theme = useTheme();
@@ -109,13 +76,7 @@ const Gallery = () => {
             >
               Technologies we use to build our products
             </Typography> */}
-          </Box>
-          {/* <Grid container spacing={2}> */}
-          
-          {/* </Grid> */}
-        </Box>
-      </Box>
-      <ImageList
+            <ImageList
             // sx={{ width: 1204, height: 602 }}
             variant="quilted"
             cols={4}
@@ -149,6 +110,13 @@ const Gallery = () => {
               </ImageListItem>
             ))}
           </ImageList>
+          </Box>
+          {/* <Grid container spacing={2}> */}
+          
+          {/* </Grid> */}
+        </Box>
+      </Box>
+      
       <Divider />
     </div>
   );

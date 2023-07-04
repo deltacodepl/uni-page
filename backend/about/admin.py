@@ -5,7 +5,7 @@ from .models import About
 class AboutAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'icon')
     list_display_links = ('id', 'title')
-    search_fields = ('title', 'icon')
+    search_fields = ('title', )
     list_per_page = 20
 
 

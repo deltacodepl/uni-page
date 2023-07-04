@@ -3,7 +3,7 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import Icon from '@mui/material/Icon';
+import Image from 'next/image';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
@@ -89,9 +89,7 @@ const About = () => {
                 >
                   <ListItemAvatar>
                     <Box color={theme.palette.primary.main}>
-                      <Icon sx={{ fontSize: '40px' }}>
-                        {item.icon}
-                      </Icon>
+                      <Image src={item.icon} width={60} height={60}/>
                     </Box>
                   </ListItemAvatar>
                   <ListItemText
