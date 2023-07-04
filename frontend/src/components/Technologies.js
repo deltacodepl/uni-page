@@ -103,7 +103,7 @@ const Technologies = () => {
                         variant='rounded'
                         borderRadius={2}
                       >
-                        <Image src={item.icon} height={50} width={50} /> 
+                        <Image src={item.image} height={50} width={50} /> 
                       </Box>
                     </Box>
                     <Typography 

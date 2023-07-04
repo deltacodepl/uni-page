@@ -9,21 +9,23 @@ import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Divider from '@mui/material/Divider';
 //import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 //import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { set, z } from "zod";
 
 import axios from 'axios';
 
+
 const formSchema = z
   .object({
-    firstName: z.string().min(3, "First Name is required").max(100),
-    lastName: z.string().min(3, "Last Name is required").max(100),
-    email: z.string().email("Invalid email. Please enter a valid email address").min(4, "Email is required"),
+    firstName: z.string().min(3, "Podaj swoje imię").max(100),
+    lastName: z.string().min(3, "Podaj swoje nazwisko").max(100),
+    email: z.string().email("Wpisz poprawny email"),
     length: z.union([z.number().int().positive().min(60), z.nan()]).optional().nullish(),
     width: z.union([z.number().int().positive().min(60), z.nan()]).optional().nullish(),
     height: z.union([z.number().int().positive().min(30), z.nan()]).optional().nullish(),
@@ -34,6 +36,9 @@ const formSchema = z
   });
 
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
 
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000/inquires",
@@ -49,10 +54,13 @@ export default function SignInSide() {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm({
     resolver: zodResolver(formSchema)
   });
+
+  const [successMessage, setSuccessMessage] = React.useState(false)
 
   const onSubmit = (data) => {
     //event.preventDefault();
@@ -69,22 +77,26 @@ export default function SignInSide() {
       "/add/",
       inquiryData,
     ).then(
-      console.log(inquiryData)
-    );
+      console.log(inquiryData),
+      setSuccessMessage(true),
+    )
+    .catch(err => console.log(err));
   };
 
   const isEmpty = (value) => {
     return value == null || value.trim() === "" || value === NaN;
   };
+  const resetForm = (e) => {reset(); setSuccessMessage(false)}
   const theme = useTheme();
 
   return (
+    <div id="inquiry">
     <Box
       maxWidth={{ sm: 720, md: 1236 }}
       width={1}
       margin='0 auto'
       paddingX={2}
-      paddingY={4}
+      paddingY={{ xs: 4, sm: 6, md: 8 }}
     >
       <Box marginBottom={4}>
         <Typography
@@ -94,15 +106,7 @@ export default function SignInSide() {
           fontWeight={700}
           gutterBottom
         >
-          About us
-        </Typography>
-        <Typography
-          variant='h6'
-          align='center'
-          color={theme.palette.text.secondary}
-          data-aos='fade-up'
-        >
-          Twórcą serwisu Opakowaniareklamowe.pl jest Spółka Segregatory24, powstała na bazie 19 lat doświadczeń w produkcji wyrobów reklamowych z tektury.  Misją Segregatory24 jest tworzenie produktów promocyjnych wychodzących naprzeciw potrzebom klientów. Sta
+          Jak możemy Ci pomóc?
         </Typography>
       </Box>
       <Grid container component="main" sx={{ height: "60vh" }}>
@@ -143,119 +147,138 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-
-            <Typography component="h1" variant="h5">
-              Jak możemy Ci pomóc?
-            </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit(onSubmit)}
-              sx={{ mt: 3 }}
-            >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                    {...register('firstName')}
-                    error={errors.firstName ? true : false}
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.firstName?.message}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="family-name"
-                    {...register('lastName')}
-                    error={errors.lastName ? true : false}
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.lastName?.message}
-                  </Typography>
-                </Grid>
+            {successMessage ?
+              (
+              <Grid item xs={12}>
+              <Typography component="h1" variant="h5">
+                Dziękujemy!, wkrótce skontaktujemy się z Tobą.
+              </Typography>
+              <Button
+              fullWidth
+              variant="outlined"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={resetForm}
+              >
+                Nowa wiadomość
+              </Button>
+              </Grid>
+              ) : (
                 <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="email"
-                    type="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    {...register('email')}
-                    error={errors.email ? true : false}
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.email?.message}
+                  <Typography component="h1" variant="h5" align="center">
+                   Napisz do nas:
                   </Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={4}>
-                  <TextField
-                    fullWidth
-                    type="number"
-                    name="length"
-                    label="Length (L)"
-                    id="length"
-                    inputProps={{ min: 60 }}
-                    {...register('length', {
-                      setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
-                    })}
-                    error={errors.length ? true : false}
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.length?.message}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <TextField
-                    fullWidth
-                    type="number"
-                    name="width"
-                    label="Width (W)"
-                    id="width"
-                    inputProps={{ min: 60 }}
-                    {...register('width', {
-                      setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
-                    })}
-                    error={errors.width ? true : false
-                    }
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.width?.message}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <TextField
-                    fullWidth
-                    type="number"
-                    name="height"
-                    label="Height (H)"
-                    id="height"
-                    inputProps={{ min: 30 }}
-                    {...register('height', {
-                      setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
-                    })}
-                    error={errors.height ? true : false}
-                  />
-                  <Typography variant="inherit" color="textSecondary">
-                    {errors.height?.message}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                  {/* <FormControlLabel
+                <Box
+                  component="form"
+                  noValidate
+                  onSubmit={handleSubmit(onSubmit)}
+                  sx={{ mt: 3 }}
+                >
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        autoComplete="given-name"
+                        name="firstName"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                        {...register('firstName')}
+                        error={errors.firstName ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.firstName?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        required
+                        fullWidth
+                        id="lastName"
+                        label="Last Name"
+                        name="lastName"
+                        autoComplete="family-name"
+                        {...register('lastName')}
+                        error={errors.lastName ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.lastName?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        required
+                        fullWidth
+                        id="email"
+                        type="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        {...register('email')}
+                        error={errors.email ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.email?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography component="h1" variant="h6" align="center">
+                        Jakiej wielkości pudełka potrzebujesz?
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        fullWidth
+                        type="number"
+                        name="length"
+                        label="Length mm"
+                        id="length"
+                        inputProps={{ min: 60 }}
+                        {...register('length', {
+                          setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
+                        })}
+                        error={errors.length ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.length?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        fullWidth
+                        type="number"
+                        name="width"
+                        label="Width mm"
+                        id="width"
+                        inputProps={{ min: 60 }}
+                        {...register('width', {
+                          setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
+                        })}
+                        error={errors.width ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.width?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        fullWidth
+                        type="number"
+                        name="height"
+                        label="Height mm"
+                        id="height"
+                        inputProps={{ min: 30 }}
+                        {...register('height', {
+                          setValueAs: (v) => v === "" ? undefined : parseInt(v, 10),
+                        })}
+                        error={errors.height ? true : false}
+                      />
+                      <Typography variant="inherit" color="textSecondary">
+                        {errors.height?.message}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      {/* <FormControlLabel
                     control={
                       <Checkbox
                         value="allowExtraEmails"
@@ -266,7 +289,7 @@ export default function SignInSide() {
                     }
                     label=""
                   /> */}
-                  {/* <FormControlLabel
+                      {/* <FormControlLabel
                     control={
                       <Controller
                         name="allow"
@@ -282,34 +305,36 @@ export default function SignInSide() {
                     }
                     label="otrzym"
                   /> */}
-                  <Controller
-                    control={control}
-                    name="marketing"
-                    defaultValue={true}
-                    render={({ field: { value, onChange, ...field } }) => (
-                      <FormControlLabel
-                        control={
-                          <Checkbox onChange={onChange} checked={value} {...field} />
-                        }
-                        label="Chcę otrzymywać wiadomości o promocjach i nowościach na email"
+                      <Controller
+                        control={control}
+                        name="marketing"
+                        defaultValue={true}
+                        render={({ field: { value, onChange, ...field } }) => (
+                          <FormControlLabel
+                            control={
+                              <Checkbox onChange={onChange} checked={value} {...field} />
+                            }
+                            label="Chcę otrzymywać wiadomości o promocjach i nowościach na email"
+                          />
+                        )}
                       />
-                    )}
-                  />
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Wyślij
-              </Button>
+                    </Grid>
+                  </Grid>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Wyślij
+                  </Button>
 
-            </Box>
+                </Box></Grid>)}
           </Box>
         </Grid>
       </Grid>
     </Box>
+    <Divider/>
+    </div>
   );
 }

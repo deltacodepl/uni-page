@@ -5,7 +5,7 @@ import Inquiry from '../components/Inquiry';
 import Contact from '../components/Contact';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
-import Technologies from '../components/Technologies';
+import Gallery from '../components/Gallery';
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <About />
       <Projects />
       <Inquiry />
-      <Technologies />
+      <Gallery />
       <Contact />
     </div>
   );

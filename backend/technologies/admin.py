@@ -3,9 +3,9 @@ from .models import Technology
 
 
 class TechnologyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'icon')
+    list_display = ('id', 'name', 'image')
     list_display_links = ('id', 'name')
-    search_fields = ('name', 'icon')
+    search_fields = ('name',)
     list_per_page = 20
 
 

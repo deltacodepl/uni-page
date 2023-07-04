@@ -34,6 +34,7 @@ const About = () => {
 
   return (
     <div id='about'>
+      
       <Box
         maxWidth={{ sm: 720, md: 1236 }}
         width={1}
@@ -42,6 +43,17 @@ const About = () => {
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
         <Box>
+        <Box marginBottom={4}>
+        <Typography
+          variant='h5'
+          align='center'
+          color={theme.palette.text.secondary}
+          data-aos='fade-up'
+        >
+          Twórcą serwisu Opakowaniareklamowe.pl jest Spółka Segregatory24, powstała na bazie 19 lat doświadczeń 
+          w produkcji wyrobów reklamowych z tektury.
+        </Typography>
+      </Box>
           <Box marginBottom={4}>
             <Typography
               variant='h3'
