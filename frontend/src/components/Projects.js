@@ -171,7 +171,7 @@ const Projects = () => {
                     </Box>
                   </CardContent>
                   <Box flexGrow={1} />
-                  <CardActions sx={{ justifyContent: 'flex-end' }}>
+                  {/* <CardActions sx={{ justifyContent: 'flex-end' }}>
                     <Button 
                       component='a'
                       href={item.link}
@@ -180,7 +180,7 @@ const Projects = () => {
                     >
                       Source Code
                     </Button>
-                  </CardActions>
+                  </CardActions> */}
                 </Box>
               </Box>
             </Grid>

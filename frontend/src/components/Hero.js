@@ -121,7 +121,7 @@ const Hero = () => {
                       <Box 
                         component={LazyLoadImage}
                         src='/images/header.jpg'
-                        alt='Background Image'
+                        alt='Opakowania'
                         effect='blur'
                         height={{ xs: 'auto', md: 1 }}
                         maxHeight={{ xs: 300, md: 1 }}

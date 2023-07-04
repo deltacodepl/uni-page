@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
+import Image from 'next/image';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -20,8 +20,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import ListIcon from '@mui/icons-material/FormatListBulleted';
 import MenuIcon from '@mui/icons-material/Menu';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -72,40 +72,16 @@ const Header = ({ onSidebarOpen }) => {
             </Button>
           </Box>
           <Link href='/' style={{ textDecoration: 'none' }}>
-            <IconButton size='large' disabled>
-              <Avatar
-                variant='rounded'
-                sx={{
-                  backgroundColor: theme.palette.primary.main,
-                  height: 45,
-                  width: 129,
+            <Box
+              component={LazyLoadImage}
+              sx={{
+                  display: { md: 'block', xs: 'none'},
                   marginRight: '15px'
                 }}
-              >
-                <FontAwesomeIcon 
-                  icon={faGraduationCap} 
-                  style={{ 
-                    color: theme.palette.common.white, 
-                    height: 30, 
-                    width: 30 
-                  }} 
-                />
-              </Avatar>
-              <Typography 
-                variant='h3' 
-                component='div' 
-                sx={{ 
-                  flexGrow: 1,
-                  color: theme.palette.text.primary,
-                  fontFamily: '"Love Ya Like A Sister", cursive',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                  display: { md: 'inline', xs: 'none' }
-                }}
-              >
-                
-              </Typography>
-            </IconButton>
+              src="/logo/logo.svg"
+              
+            >
+            </Box>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
           <Box 
@@ -122,22 +98,22 @@ const Header = ({ onSidebarOpen }) => {
             <CustomButton 
               href='#about'
               icon={<InfoIcon />}
-              text='About'
+              text='O Nas'
             />
             <CustomButton 
               href='#projects'
               icon={<ListIcon />}
-              text='Projects'
+              text='Produkty'
             />
             <CustomButton 
-              href='#technologies'
+              href='#gallery'
               icon={<DevicesIcon />}
-              text='Technologies'
+              text='Realizacje'
             />
             <CustomButton 
               href='#contact'
               icon={<EmailIcon />}
-              text='Contact'
+              text='Kontakt'
             />
           </Box>
           <Divider

@@ -24,6 +24,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faGraduationCap);
 
 import CustomButton from '../components/CustomButton';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Sidebar = ({ open, onClose }) => {
   const theme = useTheme();
@@ -45,26 +46,15 @@ const Sidebar = ({ open, onClose }) => {
       <Box sx={{ height: '100%', padding: 1 }}>
         <Box width={1} paddingX={2} paddingY={1}>
           <Link href='/' style={{ textDecoration: 'none' }}>
-            <IconButton size='large' disabled>
-              <Avatar
-                variant='rounded'
-                sx={{
-                  backgroundColor: theme.palette.primary.main,
-                  height: 52,
-                  width: 52,
-                  marginRight: '15px'
-                }}
-              >
-                <FontAwesomeIcon 
-                  icon={faGraduationCap} 
-                  style={{ 
-                    color: theme.palette.common.white, 
-                    height: 30, 
-                    width: 30 
-                  }} 
-                />
-              </Avatar>
-              <Typography 
+            <Box
+              component={LazyLoadImage}
+              src={'/logo/logo.svg'}
+              sx = {{
+                marginRight: '15px',
+              }}
+            >
+              
+              {/* <Typography 
                 variant='h3' 
                 component='div' 
                 color={theme.palette.text.primary}
@@ -74,8 +64,8 @@ const Sidebar = ({ open, onClose }) => {
                 flexGrow={1}
               >
                 Logo
-              </Typography>
-            </IconButton>
+              </Typography> */}
+            </Box>
           </Link>
         </Box>
         <Box paddingX={2} paddingY={2}>
@@ -88,7 +78,7 @@ const Sidebar = ({ open, onClose }) => {
             <CustomButton 
               href='#about'
               icon={<InfoIcon />}
-              text='About'
+              text='O Nas'
             />
           </Box>
           <Box paddingY={1}>

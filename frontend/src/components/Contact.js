@@ -55,7 +55,7 @@ const Contact = () => {
           paddingY={{ xs: 4, sm: 6, md: 8 }}
           paddingBottom={10}
         >
-          <Box marginBottom={4}>
+          {/* <Box marginBottom={4}>
             <Typography
               variant='h3'
               align='center'
@@ -76,7 +76,7 @@ const Contact = () => {
             >
               We would love to hear from you
             </Typography>
-          </Box>
+          </Box> */}
           {contact.map((item, i) => (
             <Box key={i}>
               <Box marginBottom={4}>
@@ -139,7 +139,7 @@ const Contact = () => {
                     </Box>
                   </Box>
                   <ListItemText 
-                    primary='Location'
+                    primary='Adres'
                     secondary={item.address} 
                   />
                 </Box>
