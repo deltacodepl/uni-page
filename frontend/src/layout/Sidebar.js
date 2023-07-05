@@ -85,45 +85,38 @@ const Sidebar = ({ open, onClose }) => {
             <CustomButton 
               href='#projects'
               icon={<ListIcon />}
-              text='Projects'
+              text='Produkty'
             />
           </Box>
           <Box paddingY={1}>
             <CustomButton 
-              href='#technologies'
+              href='#gallery'
               icon={<DevicesIcon />}
-              text='Technologies'
+              text='Realizacje'
             />
           </Box>
           <Box paddingY={1}>
             <CustomButton 
-              href='#contact'
+              href='#inquiry'
               icon={<EmailIcon />}
-              text='CONTACT'
+              text='Kontakt'
             />
           </Box>
           <Box>
             <Stack direction='row' spacing={1}>
-              <IconButton 
-                aria-label='YouTube' 
-                color='primary'
-                href='#'
-                target='_blank'
-              >
-                <YouTubeIcon fontSize='large' />
-              </IconButton>
-              <IconButton 
+              
+              {/* <IconButton 
                 aria-label='LinkedIn' 
                 color='primary'
                 href='#'
                 target='_blank'
               >
                 <LinkedInIcon fontSize='large' />
-              </IconButton>
+              </IconButton> */}
               <IconButton 
                 aria-label='Instagram' 
                 color='primary'
-                href='#'
+                href='https://www.instagram.com/opakowaniareklamowe/#'
                 target='_blank'
               >
                 <InstagramIcon fontSize='large' />

@@ -111,7 +111,7 @@ const Header = ({ onSidebarOpen }) => {
               text='Realizacje'
             />
             <CustomButton 
-              href='#contact'
+              href='#inquiry'
               icon={<EmailIcon />}
               text='Kontakt'
             />
