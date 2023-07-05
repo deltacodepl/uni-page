@@ -29,6 +29,7 @@ const formSchema = z
     length: z.union([z.number().int().positive().min(60), z.nan()]).optional().nullish(),
     width: z.union([z.number().int().positive().min(60), z.nan()]).optional().nullish(),
     height: z.union([z.number().int().positive().min(30), z.nan()]).optional().nullish(),
+    message: z.string().optional().nullish(),
     marketing: z.boolean(),
     // marketing: z.literal(true, {
     //   errorMap: () => ({ message: "You must accept the terms and conditions" }),
@@ -71,6 +72,7 @@ export default function SignInSide() {
       first_name: data.firstName,
       last_name: data.lastName,
       box_dimensions: [data.length, data.width, data.height].join("/"),
+      message: data.message,
       marketing: data.marketing,
     }
     client.post(
@@ -109,7 +111,7 @@ export default function SignInSide() {
           Jak możemy Ci pomóc?
         </Typography>
       </Box>
-      <Grid container component="main" sx={{ height: {xs: 690, sm: "65vh", md: "65vh"} }}>
+      <Grid container component="main" sx={{ height: {xs: 820, sm: "65vh", md: "65vh"} }}>
         <CssBaseline />
         {/* <Box 
             component={LazyLoadImage}
@@ -276,6 +278,17 @@ export default function SignInSide() {
                       <Typography variant="inherit" color="textSecondary">
                         {errors.height?.message}
                       </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        id="message"
+                        multiline
+                        label="Wiadomość"
+                        name="message"
+                        rows={2}
+                        {...register('message')}
+                      />
                     </Grid>
                     <Grid item xs={12}>
                       {/* <FormControlLabel
