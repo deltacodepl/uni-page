@@ -50,8 +50,7 @@ const About = () => {
           color={theme.palette.text.secondary}
           data-aos='fade-up'
         >
-          Twórcą serwisu Opakowaniareklamowe.pl jest Spółka Segregatory24, powstała na bazie 19 lat doświadczeń 
-          w produkcji wyrobów reklamowych z tektury.
+          Jesteśmy producentem pudełek premium z 19 latami doświadczenia w produkcji wyrobów reklamowych.
         </Typography>
       </Box>
           <Box marginBottom={4}>
