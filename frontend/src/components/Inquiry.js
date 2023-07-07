@@ -17,10 +17,11 @@ import { useTheme } from "@mui/material/styles";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { set, z } from "zod";
+import getConfig from 'next/config';
 
 import axios from 'axios';
 
-
+const {publicRuntimeConfig} = getConfig();
 const formSchema = z
   .object({
     firstName: z.string().min(3, "Podaj swoje imię").max(100),
@@ -42,7 +43,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000/inquires",
+  baseURL: publicRuntimeConfig.backendUrl,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -76,7 +77,7 @@ export default function SignInSide() {
       marketing: data.marketing,
     }
     client.post(
-      "/add/",
+      "/inquires/add/",
       inquiryData,
     ).then(
       console.log(inquiryData),

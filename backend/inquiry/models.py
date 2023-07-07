@@ -11,7 +11,7 @@ class Product(models.TextChoices):
 class Inquiry(models.Model):
     first_name = models.CharField(_("first name"), max_length=100)
     last_name = models.CharField(_("last name"), max_length=100)
-    message = models.TextField(null=True)
+    message = models.TextField(blank=True, null=True)
     email = models.CharField(max_length=150)
     phone = models.CharField(max_length=20, blank=True, null=True)
     box_dimensions = models.CharField(max_length=150, blank=True, null=True)

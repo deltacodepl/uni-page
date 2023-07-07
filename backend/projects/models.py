@@ -15,5 +15,8 @@ class Project(models.Model):
     image = models.ImageField(upload_to='images')
     tags = models.ManyToManyField(Tag)
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self):
         return self.name
