@@ -50,7 +50,7 @@ const About = () => {
           color={theme.palette.text.secondary}
           data-aos='fade-up'
         >
-          Jesteśmy producentem pudełek premium z 19 latami doświadczenia w produkcji wyrobów reklamowych.
+          Produkujemy pudełka premium z dbałością o każdy detal...
         </Typography>
       </Box>
           <Box marginBottom={4}>
