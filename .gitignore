@@ -1,7 +1,5 @@
 *.pyc
 .env
-.env.development
-.env.production
 .DS_Store
 .next/
 db.sqlite3
