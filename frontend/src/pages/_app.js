@@ -60,7 +60,7 @@ const App = ({ Component, pageProps, emotionCache = clientSideEmotionCache }) =>
         <meta charSet='utf-8' />
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
         <meta name='description' content="Pudełka Premium" />
-        <meta name='keywords' content='programming, python, javascript, portfolio, website' />
+        <meta name='keywords' content='pudełka, opakowania, django, react' />
         <title>Pudełka Premium</title>
       </Head>
       <ColorModeContext.Provider value={colorMode}>
