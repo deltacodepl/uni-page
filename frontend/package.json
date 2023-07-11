@@ -4,7 +4,7 @@
   "description": "Opakowaniareklamowe Website",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "author": "MG",
