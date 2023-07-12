@@ -6,15 +6,15 @@ from .serializers import InquirySerializer
 
 
 class InquiryListView(ListAPIView):
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAdminUser,)
     queryset = Inquiry.objects.all()
     serializer_class = InquirySerializer
     pagination_class = None
 
 
-class InquiryList(ListCreateAPIView):
-    queryset = Inquiry.objects.all()
-    serializer_class = InquirySerializer
+# class InquiryList(ListCreateAPIView):
+#     queryset = Inquiry.objects.all()
+#     serializer_class = InquirySerializer
 
 
 class CreateInquiryApiView(CreateAPIView):
