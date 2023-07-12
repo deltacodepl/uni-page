@@ -56,7 +56,7 @@ const HeroButtons = () => {
             variant='outlined'
             color='primary'
             size='large'
-            href='#contact'
+            href='#inquiry'
             endIcon={<HelpIcon />}
             fullWidth={isMd ? false : true}
             disableElevation={true}
