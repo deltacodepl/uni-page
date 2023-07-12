@@ -28,7 +28,7 @@ module.exports = withImages({
     return [
       {
         // matching all API routes
-        source: "/:path*",
+        //source: "/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
