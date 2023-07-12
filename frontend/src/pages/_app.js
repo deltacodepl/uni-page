@@ -32,9 +32,9 @@ const App = ({ Component, pageProps, emotionCache = clientSideEmotionCache }) =>
   useEffect(() => {
     try {
       const localTheme = window.localStorage.getItem('themeMode');
-      localTheme ? setMode(localTheme) : setMode('dark');
+      localTheme ? setMode(localTheme) : setMode('light');
     } catch {
-      setMode('dark');
+      setMode('light');
     }
   }, []);
 
