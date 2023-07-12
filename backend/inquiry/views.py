@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, ListCreateAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework import permissions
 
 from .models import Inquiry
