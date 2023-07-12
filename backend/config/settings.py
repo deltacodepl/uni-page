@@ -144,7 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS_ALLOWED_ORIGINS = [
 #     # env('FRONTEND_URL'),
-#     'https://hello.opakowaniareklamowe.pl/',
+#     'https://hello.opakowaniareklamowe.pl',
 #     'http://localhost:3000',
 # ]
 
@@ -171,6 +171,7 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+    'access-control-allow-origin',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
