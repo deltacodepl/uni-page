@@ -66,7 +66,16 @@ const Footer = () => {
                         variant='body2'
                         color={theme.palette.text.secondary}
                       >
-                        Copyright &copy; {new Date().getFullYear()} opakowaniareklamowe.pl.
+                        Copyright &copy; {new Date().getFullYear()}  &nbsp; 
+                        <Link
+                          href='https://opakowaniareklamowe.pl'
+                          alt=''
+                          target='_blank'
+                          rel='noreferrer'
+                          color={theme.palette.text.secondary}
+                        >
+                          opakowaniareklamowe.pl
+                        </Link>
                       </Typography>
                     }
                   />

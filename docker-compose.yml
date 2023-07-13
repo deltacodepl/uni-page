@@ -12,13 +12,13 @@ services:
       # POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - db-data:/var/lib/postgresql/data
-      #- ./docker/db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./docker/db.sql:/docker-entrypoint-initdb.d/db.sql
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "hello@retryjoin.pl"
-      PGADMIN_DEFAULT_PASSWORD: "Nat33ail"
+      PGADMIN_DEFAULT_EMAIL: "admin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
     ports:
       - "5050:80"
     depends_on:
@@ -42,41 +42,6 @@ services:
       - ./docker:/app/docker
     depends_on:
       - db
-
-  # queue:
-  #   build:
-  #     context: .
-  #     args:
-  #       REQUIREMENTS_FILE: requirements.txt
-  #   restart: unless-stopped
-  #   env_file: .env
-  #   command: sh /entrypoint-queue.sh
-  #   volumes:
-  #     - ./backend:/app
-
-  # beat:
-  #   build:
-  #     context: .
-  #     args:
-  #       REQUIREMENTS_FILE: requirements.txt
-  #   restart: unless-stopped
-  #   env_file: .env
-  #   command: sh /entrypoint-beat.sh
-  #   volumes:
-  #     - ./:/app
-
-  redis:
-    image: redis:alpine
-    restart: unless-stopped
-    ports:
-      - 6379:6379
-
-  mailhog:
-    image: mailhog/mailhog:latest
-    restart: always
-    ports:
-      - 1025:1025
-      - 8025:8025
 
 volumes:
   db-data:

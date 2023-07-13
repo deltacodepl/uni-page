@@ -23,7 +23,7 @@ const Map = ({ coordinates, zoom }) => {
       zoom={zoom} 
       scrollWheelZoom={false} 
       whenCreated={setMap}
-      style={{ height: '400px', width: '100%' }}
+      style={{ height: '300px', width: '100%' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

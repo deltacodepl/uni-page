@@ -23,10 +23,10 @@ SET row_security = off;
 -- Name: database; Type: DATABASE; Schema: -; Owner: user
 --
 
-CREATE DATABASE database WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
+-- CREATE DATABASE database WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
 
 
-ALTER DATABASE database OWNER TO "user";
+-- ALTER DATABASE database OWNER TO "user";
 
 \connect database
 
@@ -910,31 +910,11 @@ INSERT INTO public.auth_permission VALUES (46, 'Can change Inquiry', 12, 'change
 INSERT INTO public.auth_permission VALUES (47, 'Can delete Inquiry', 12, 'delete_inquiry');
 INSERT INTO public.auth_permission VALUES (48, 'Can view Inquiry', 12, 'view_inquiry');
 
-
---
--- TOC entry 3491 (class 0 OID 16434)
--- Dependencies: 222
--- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: user
---
-
-INSERT INTO public.auth_user VALUES (10, 'pbkdf2_sha256$260000$aZoypDqRB2YaUg4GHZDPja$a7AmXvbZhWQJeAHiIaZ0lS6cG2FxyRItT8uCkV/BguY=', NULL, true, 'admin', '', '', 'hello@retryjoin.pl', true, true, '2023-07-06 18:39:45.809803+00');
-
-
---
--- TOC entry 3493 (class 0 OID 16443)
--- Dependencies: 224
--- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: user
---
-
-
-
 --
 -- TOC entry 3495 (class 0 OID 16450)
 -- Dependencies: 226
 -- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: user
 --
-
-
 
 --
 -- TOC entry 3499 (class 0 OID 16539)
@@ -1019,106 +999,15 @@ INSERT INTO public.django_migrations VALUES (30, 'inquiry', '0003_inquiry_messag
 
 INSERT INTO public.django_session VALUES ('ofbv8rxsbw8wa5xfs3fr14m35rcubzpq', '.eJxVjMsOwiAUBf-FtSGUIrd16d5vIPcBUjWQlHZl_HfbpAvdnpkzbxVwXXJYW5zDJOqiRnX63Qj5GcsO5IHlXjXXsswT6V3RB236ViW-rof7F8jY8vbm3okgA5P1aI0YhLFLnpAMOkdogGCrpeTAdd6TjcbSAHy2kIaYevX5AhSPONw:1qHSXW:paBTXxzJiVWBDih-WuUzawwQ1IGUW2MeMNgpuSziPOI', '2023-07-20 17:13:10.54673+00');
 
-
---
--- TOC entry 3501 (class 0 OID 16546)
--- Dependencies: 232
--- Data for Name: inquiry_inquiry; Type: TABLE DATA; Schema: public; Owner: user
---
-
-INSERT INTO public.inquiry_inquiry VALUES (1, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '111111', false, '2023-06-29 10:32:04.140251+00', '2023-06-29 10:32:04.140269+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (2, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '11/11/11', false, '2023-06-29 10:33:44.557609+00', '2023-06-29 10:33:44.557637+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (3, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '11/11/11', true, '2023-06-29 10:52:27.382363+00', '2023-06-29 10:52:27.382389+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (4, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe', NULL, '11/11/11', true, '2023-06-29 11:32:13.54668+00', '2023-06-29 11:32:13.547012+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (5, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe', NULL, '11/11/11', false, '2023-06-29 12:06:34.345657+00', '2023-06-29 12:06:34.34574+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (6, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe', NULL, '11/11/11', false, '2023-06-29 12:09:26.108796+00', '2023-06-29 12:09:26.108837+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (7, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 16:13:18.607862+00', '2023-06-30 16:13:18.607891+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (8, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 16:13:48.087308+00', '2023-06-30 16:13:48.087335+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (9, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/61/33', false, '2023-06-30 16:14:00.772728+00', '2023-06-30 16:14:00.772747+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (10, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/61/33', false, '2023-06-30 16:15:03.735869+00', '2023-06-30 16:15:03.735889+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (11, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 16:17:10.820663+00', '2023-06-30 16:17:10.820687+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (12, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', false, '2023-06-30 17:10:11.478943+00', '2023-06-30 17:10:11.47902+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (13, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 17:21:57.83759+00', '2023-06-30 17:21:57.83762+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (14, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 17:23:52.073683+00', '2023-06-30 17:23:52.073703+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (15, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 17:43:38.996897+00', '2023-06-30 17:43:38.996929+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (16, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-06-30 17:43:45.75297+00', '2023-06-30 17:43:45.752988+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (17, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 10:04:39.059926+00', '2023-07-01 10:04:39.059957+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (18, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 10:04:46.024133+00', '2023-07-01 10:04:46.024152+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (19, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:55:04.475009+00', '2023-07-01 17:55:04.475034+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (20, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:55:14.251653+00', '2023-07-01 17:55:14.251677+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (21, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:56:39.487165+00', '2023-07-01 17:56:39.487182+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (22, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:56:45.247617+00', '2023-07-01 17:56:45.247635+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (23, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:57:14.768447+00', '2023-07-01 17:57:14.768465+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (24, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:58:03.753493+00', '2023-07-01 17:58:03.753514+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (25, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:58:08.739276+00', '2023-07-01 17:58:08.739299+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (26, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:58:11.062342+00', '2023-07-01 17:58:11.062366+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (27, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 17:59:19.266658+00', '2023-07-01 17:59:19.266675+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (28, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:01:09.919461+00', '2023-07-01 18:01:09.919498+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (29, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:01:11.672748+00', '2023-07-01 18:01:11.672775+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (30, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:01:57.855057+00', '2023-07-01 18:01:57.855088+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (31, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:02:31.942525+00', '2023-07-01 18:02:31.942544+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (32, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:02:40.015641+00', '2023-07-01 18:02:40.015675+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (33, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:02:41.586834+00', '2023-07-01 18:02:41.58686+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (34, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:16.164164+00', '2023-07-01 18:03:16.164193+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (35, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:17.432773+00', '2023-07-01 18:03:17.432799+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (36, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:18.274697+00', '2023-07-01 18:03:18.274737+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (37, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:20.172664+00', '2023-07-01 18:03:20.172726+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (38, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:21.68225+00', '2023-07-01 18:03:21.682274+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (39, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:03:23.088805+00', '2023-07-01 18:03:23.088822+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (40, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:05:05.294062+00', '2023-07-01 18:05:05.297489+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (41, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:15:32.307165+00', '2023-07-01 18:15:32.307297+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (42, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:15:47.40774+00', '2023-07-01 18:15:47.407771+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (43, 'Krzysztof', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:16:31.455238+00', '2023-07-01 18:16:31.455261+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (44, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:17:27.553136+00', '2023-07-01 18:17:27.55317+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (45, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:17:30.651851+00', '2023-07-01 18:17:30.651879+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (46, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:17:38.904612+00', '2023-07-01 18:17:38.904641+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (47, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:22:01.995617+00', '2023-07-01 18:22:01.995645+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (48, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:22:05.271237+00', '2023-07-01 18:22:05.271268+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (49, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:22:06.266855+00', '2023-07-01 18:22:06.266886+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (50, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:27:08.370423+00', '2023-07-01 18:27:08.370522+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (51, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:28:10.725288+00', '2023-07-01 18:28:10.72531+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (52, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:38:10.089328+00', '2023-07-01 18:38:10.089346+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (53, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:40:39.111738+00', '2023-07-01 18:40:39.11176+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (54, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:44:53.344488+00', '2023-07-01 18:44:53.344522+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (55, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:49:38.386211+00', '2023-07-01 18:49:38.386229+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (56, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:49:42.807192+00', '2023-07-01 18:49:42.807213+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (57, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:50:23.732269+00', '2023-07-01 18:50:23.732287+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (58, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:50:27.373722+00', '2023-07-01 18:50:27.37374+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (59, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:53:18.530217+00', '2023-07-01 18:53:18.530236+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (60, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:53:57.512079+00', '2023-07-01 18:53:57.512096+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (61, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:54:02.049477+00', '2023-07-01 18:54:02.0495+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (62, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-01 18:54:47.901696+00', '2023-07-01 18:54:47.901724+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (63, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 06:22:20.680088+00', '2023-07-02 06:22:20.680113+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (64, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', false, '2023-07-02 06:22:22.991846+00', '2023-07-02 06:22:22.991869+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (65, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 06:23:34.911033+00', '2023-07-02 06:23:34.911056+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (66, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 06:28:16.235852+00', '2023-07-02 06:28:16.235875+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (67, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 08:50:22.644762+00', '2023-07-02 08:50:22.6448+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (68, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 08:52:28.627736+00', '2023-07-02 08:52:28.6278+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (69, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 08:52:34.106174+00', '2023-07-02 08:52:34.106192+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (70, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 08:52:35.7782+00', '2023-07-02 08:52:35.778228+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (71, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/30', true, '2023-07-02 08:52:49.055802+00', '2023-07-02 08:52:49.055827+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (72, 'Krzysztof', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:15:11.507338+00', '2023-07-02 10:15:11.507596+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (73, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:33:11.998515+00', '2023-07-02 10:33:11.999632+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (74, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:37:15.517853+00', '2023-07-02 10:37:15.517885+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (75, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:39:49.113314+00', '2023-07-02 10:39:49.113347+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (76, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:40:59.636295+00', '2023-07-02 10:40:59.63632+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (77, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:41:07.495095+00', '2023-07-02 10:41:07.49512+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (78, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-02 10:42:05.402311+00', '2023-07-02 10:42:05.402329+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (79, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '60/60/60', true, '2023-07-05 07:34:28.376317+00', '2023-07-05 07:34:28.37635+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (80, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-05 08:22:54.37796+00', '2023-07-05 08:22:54.378032+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (81, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-05 08:29:20.724894+00', '2023-07-05 08:29:20.724923+00', NULL);
-INSERT INTO public.inquiry_inquiry VALUES (82, 'Kris', 'Olski', 'kontakt@opakowaniareklamowe.pl', NULL, '//', true, '2023-07-05 08:31:03.691724+00', '2023-07-05 08:31:03.691746+00', 'www');
-
-
 --
 -- TOC entry 3505 (class 0 OID 16562)
 -- Dependencies: 236
 -- Data for Name: projects_project; Type: TABLE DATA; Schema: public; Owner: user
 --
 
-INSERT INTO public.projects_project VALUES (1, 'Pudełka z wieczkiem', 'Pudełka dwuczęściowe', 'www', 'images/OPAKOWANIA_REKLAMOWE_PL_001_220701_keenys_025_o91pzUp.jpg');
-INSERT INTO public.projects_project VALUES (2, 'Pudełka zamykane na magnes', 'Pudełka z klapką, z zamknięciem na magnes', 'www', 'images/OPAKOWANIA_REKLAMOWE_PL_001_220701_keenys_031_wybrane_Z4V2PyI.jpg');
-INSERT INTO public.projects_project VALUES (3, 'Wzorniki', 'Skrzydłowe, bądź w formie pudełka', 'www', 'images/keenys_057_wybrane_9dVmNQ0.jpg');
+INSERT INTO public.projects_project VALUES (1, 'Pudełka z wieczkiem', 'Pudełka dwuczęściowe', 'www', 'images/denko-wieko.jpg');
+INSERT INTO public.projects_project VALUES (2, 'Pudełka zamykane na magnes', 'Pudełka z klapką, z zamknięciem na magnes', 'www', 'images/zamykane-na-magnes.jpg');
+INSERT INTO public.projects_project VALUES (3, 'Wzorniki', 'Skrzydłowe, bądź w formie pudełka', 'www', 'images/wzornik-f.jpg');
 
 
 --
