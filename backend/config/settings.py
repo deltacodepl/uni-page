@@ -12,8 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env('DEBUG')
-DEBUG = False
+DEBUG = bool(env('DEBUG'))
 # ALLOWED_HOSTS = environ.get('DJANGO_ALLOWED_HOSTS', default=["*"])
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default="*")
 
@@ -48,13 +47,14 @@ MIDDLEWARE = [
     'healthcheck.middleware.HealthCheckMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'django.contrib.staticfiles',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -128,12 +128,21 @@ USE_TZ = True
 # MEDIA_ROOT is for the user-uploaded content
 
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'build/static')
+#     os.path.join(BASE_DIR, 'static')
 # ]
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+if DEBUG:
+    # STATICFILES_DIRS = ['static']
+    STATIC_ROOT = None
+    # FIXME
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+else:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    STATICFILES_DIRS = []
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -148,7 +157,6 @@ CORS_ALLOWED_ORIGINS = [
 
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-
 
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -174,8 +182,5 @@ CORS_ALLOW_HEADERS = [
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 # USE_X_FORWARDED_HOST = True
-
-if not DEBUG:
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 FILE_UPLOAD_PERMISSIONS = 0o640
