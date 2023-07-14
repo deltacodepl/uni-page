@@ -112,4 +112,4 @@ admin/password.
 
 Code released under the MIT license.
 
-Creds for https://github.com/BobsProgrammingAcademy
+Thanks to https://github.com/BobsProgrammingAcademy
