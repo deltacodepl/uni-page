@@ -1,16 +1,20 @@
 [tool.poetry]
-name = "opak-landingpage"
+name = "opak-page"
 version = "0.1.0"
 description = ""
 authors = ["Krzysztof Olszewski <hello@retryjoin.pl>"]
 readme = "README.md"
-packages = [{include = "opak_landingpage"}]
+packages = [{include = "opak_page"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-django = "^4.2.2"
+django = "3.2.19"
 typing-extensions = "^4.6.3"
 django-cors-headers = "^4.1.0"
+django-storages = "^1.13.2"
+djangorestframework = "^3.14.0"
+django-environ = "^0.10.0"
+boto3 = "^1.28.3"
 
 
 [tool.poetry.group.dev.dependencies]
