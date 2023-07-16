@@ -132,9 +132,7 @@ USE_TZ = True
 
 # MEDIA_ROOT is for the user-uploaded content
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'staticfiles')
-# ]
+
 
 # USE_X_FORWARDED_HOST = True
 if not DEBUG:
@@ -159,6 +157,9 @@ else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATICFILES_DIRS = [
+    # os.path.join(BASE_DIR, 'staticfiles')
+]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
