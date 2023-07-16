@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # 3rd party
     'rest_framework',
     'corsheaders',
+    'whitenoise',
 
     # Local
     'about',
@@ -136,9 +137,7 @@ USE_TZ = True
 # ]
 
 # USE_X_FORWARDED_HOST = True
-if DEBUG:
-    STATIC_ROOT = None
-else:
+if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 if USE_S3:
