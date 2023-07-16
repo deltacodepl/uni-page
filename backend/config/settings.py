@@ -12,7 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(env('DEBUG'))
+# DEBUG = bool(env('DEBUG'))
+DEBUG = env('DEBUG')
+
 # ALLOWED_HOSTS = environ.get('DJANGO_ALLOWED_HOSTS', default=["*"])
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default="*")
 USE_S3 = bool(env('USE_S3', default=False))
