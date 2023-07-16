@@ -2,7 +2,7 @@ const withImages = require('next-images');
 
 module.exports = withImages({
   images: {
-    domains: [process.env.BACKEND_HOST, 's3.amazonaws.com'], 
+    domains: [process.env.BACKEND_HOST, 'opak-media.s3.amazonaws.com'], 
   },
   async rewrites() {
     return [
