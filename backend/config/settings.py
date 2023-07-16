@@ -133,7 +133,6 @@ USE_TZ = True
 # MEDIA_ROOT is for the user-uploaded content
 
 
-
 # USE_X_FORWARDED_HOST = True
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
