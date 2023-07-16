@@ -12,12 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = bool(env('DEBUG'))
-DEBUG = env('DEBUG')
+
+DEBUG = env.bool('DEBUG', default=False)
 
 # ALLOWED_HOSTS = environ.get('DJANGO_ALLOWED_HOSTS', default=["*"])
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default="*")
-USE_S3 = bool(env('USE_S3', default=False))
+USE_S3 = env.bool('USE_S3', default=False)
 
 if type(ALLOWED_HOSTS) is str:
     ALLOWED_HOSTS = ALLOWED_HOSTS.split(',')
@@ -132,14 +132,12 @@ USE_TZ = True
 # MEDIA_ROOT is for the user-uploaded content
 
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
+#     os.path.join(BASE_DIR, 'staticfiles')
 # ]
 
-
+# USE_X_FORWARDED_HOST = True
 if DEBUG:
-    # STATIC_ROOT = None
-    # FIXME
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    STATIC_ROOT = None
 else:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -200,6 +198,5 @@ CORS_ALLOW_HEADERS = [
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-# USE_X_FORWARDED_HOST = True
 
 FILE_UPLOAD_PERMISSIONS = 0o640
