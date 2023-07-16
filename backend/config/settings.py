@@ -15,6 +15,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = bool(env('DEBUG'))
 # ALLOWED_HOSTS = environ.get('DJANGO_ALLOWED_HOSTS', default=["*"])
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default="*")
+USE_S3 = bool(env('USE_S3'))
 
 if type(ALLOWED_HOSTS) is str:
     ALLOWED_HOSTS = ALLOWED_HOSTS.split(',')
@@ -139,8 +140,6 @@ if DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 else:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
-USE_S3 = bool(env('USE_S3'))
 
 if USE_S3:
     # aws settings
