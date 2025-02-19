@@ -922,7 +922,7 @@ INSERT INTO public.auth_permission VALUES (48, 'Can view Inquiry', 12, 'view_inq
 -- Data for Name: contact_contact; Type: TABLE DATA; Schema: public; Owner: user
 --
 
-INSERT INTO public.contact_contact VALUES (1, 'Cedry Wielkie, M. Płażyńskiego 6', 'kontakt@opakowaniareklamowe.pl', 54.244300, 18.841900);
+INSERT INTO public.contact_contact VALUES (1, 'Gdańsk, ul. Miałki Szlak 52', 'contactpl@unifoil.com', 54.34523745, 18.69041709);
 
 
 --
