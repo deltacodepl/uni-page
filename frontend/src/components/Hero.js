@@ -41,7 +41,7 @@ const Hero = () => {
                       fontWeight={700}
                       align='center'
                     >
-                      Praktyczność i Elegancja
+                      Environmentally concious for over 50 years{' '}
                     </Typography>
                     <Typography
                       color={theme.palette.text.primary}
@@ -50,7 +50,7 @@ const Hero = () => {
                       align='center'
                       marginBottom={3}
                     >
-                      w każdym pudełku
+                      Laminating, Coating and Metalizng technology
                     </Typography>
                   </Box>
                   <Box marginBottom={3}>
@@ -60,7 +60,7 @@ const Hero = () => {
                       color={theme.palette.text.secondary}
                       align='center'
                     >
-                     Produkujemy opakowania i wzorniki premium, dedykowane Twoim produktom
+                    Laminating, Coating and Metalizng technology
                     </Typography>
                   </Box>
                   <HeroButtons />
